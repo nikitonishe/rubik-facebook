@@ -41,7 +41,13 @@ If you do not specify a host, then `https://graph.facebook.com/` will be used by
 If you don't specify a token, you will need to pass it.
 ```js
 ...
-const response = await app.get('facebook').debug_token();
+const response = await app.get('facebook').debugToken();
+...
+```
+
+```js
+...
+const response = await app.get('facebook').me.subscribedApps();
 ...
 ```
 
