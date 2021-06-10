@@ -64,13 +64,13 @@ class Facebook extends Kubik {
    * @param  {String} [host=this.host] хост API Viber
    * @return {Promise<Object>} ответ от Viber API
    */
-  async request({ path, body, params, token, host }) {
+  async request({ path, body, params, token, host, method }) {
     if (isObject(body)) {
       body = JSON.stringify(body);
     }
 
     const url = this.getUrl({ path, params, token, host });
-    let method = 'GET';
+    if (!method) method = 'GET';
     const headers = {};
 
     if (body) {
@@ -81,7 +81,7 @@ class Facebook extends Kubik {
 
     const request = await fetch(url, { method, body, headers });
     const result = await request.json();
-    
+
     if (result.error) throw new FacebookError(result.error.message);
     return result;
   }
@@ -98,8 +98,8 @@ class Facebook extends Kubik {
   generateMethod({ kubikName, apiName }) {
     const method = (options) => {
       if (!options) options = {};
-      const { body, params, token, host } = options;
-      return this.request({ path: apiName, body, params, token, host });
+      const { body, params, token, host, method } = options;
+      return this.request({ path: apiName, body, params, token, host, method });
     };
     set(this, kubikName, method);
   }
