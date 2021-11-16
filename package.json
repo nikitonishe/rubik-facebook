@@ -1,6 +1,6 @@
 {
   "name": "rubik-facebook",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Facebook Bot Api kubik for the Rubik application system",
   "main": "classes/Facebook.js",
   "author": "ns@indotech.ru",
