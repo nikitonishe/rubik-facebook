@@ -4,5 +4,6 @@ module.exports = [
   { kubikName: 'me.subscribedApps', apiName: 'me/subscribed_apps' },
   { kubikName: 'me.messengerProfile', apiName: 'me/messenger_profile' },
   { kubikName: 'me.messages', apiName: 'me/messages' },
+  { kubikName: 'me.message_attachments', apiName: 'me/message_attachments' },
   { kubikName: 'me.accounts', apiName: 'me/accounts' }
 ];
