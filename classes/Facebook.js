@@ -64,12 +64,12 @@ class Facebook extends Kubik {
    * @param  {String} [host=this.host] хост API Viber
    * @return {Promise<Object>} ответ от Viber API
    */
-  async request({ path, body, params, token, host, method }) {
+  async request({ path, body, params, token, host, method, fbApiVersion }) {
     if (isObject(body)) {
       body = JSON.stringify(body);
     }
 
-    const url = this.getUrl({ path, params, token, host });
+    const url = this.getUrl({ path, params, token, host, fbApiVersion });
     if (!method) method = 'GET';
     const headers = {};
 
